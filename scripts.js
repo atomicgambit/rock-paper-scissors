@@ -12,23 +12,20 @@ function getComputerChoice() {
 }
 
 //Create a new function that takes two string parameters, computerSelection and playerSelection
-//Convert playerSelection to lowercase and store it in a new variable called playerMove
-//Check if player selection is a legal move by comparing it with the strings rock, paper or scissors.
-//If not legal, print "That's not a legal move!"
-//If the move is legal, compare it with computerChoice
-//If playermove equals computerselection, return "It's a draw"!
-//Write the conditions that cover all the possible combinations and return "You win/lose! X beats X"
-
 function playRound(playerSelection, computerSelection) {
+  //Convert playerSelection to lowercase and store it in a new variable called playerMove
   let playerMove = playerSelection.toLowerCase();
+  //If playermove equals computerselection, return "It's a draw"!
   if (playerMove === computerSelection) {
     return "It's a draw!";
+    //If playerMove beats computermove, return "You win"
   } else if (
     (playerMove === "rock" && computerSelection === "scissors") ||
     (playerMove === "paper" && computerSelection === "rock") ||
     (playerMove === "scissors" && computerSelection === "paper")
   ) {
     return `You win! ${playerMove} beats ${computerSelection}!`;
+    //Or else, return you lose.
   } else {
     return `You lose! ${computerSelection} beats ${playerMove}`;
   }
