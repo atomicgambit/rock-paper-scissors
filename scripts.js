@@ -20,21 +20,21 @@ function getComputerChoice() {
 //Write the conditions that cover all the possible combinations and return "You win/lose! X beats X"
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection.toLowerCase();
-  if (playerSelection === computerSelection) {
+  let playerMove = playerSelection.toLowerCase();
+  if (playerMove === computerSelection) {
     return "It's a draw!";
   } else if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
+    (playerMove === "rock" && computerSelection === "scissors") ||
+    (playerMove === "paper" && computerSelection === "rock") ||
+    (playerMove === "scissors" && computerSelection === "paper")
   ) {
-    return `You win! ${playerSelection} beats ${computerSelection}!`;
+    return `You win! ${playerMove} beats ${computerSelection}!`;
   } else {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    return `You lose! ${computerSelection} beats ${playerMove}`;
   }
 }
 
-const playerSelection = "rock";
+let playerSelection = "pApEr";
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 
