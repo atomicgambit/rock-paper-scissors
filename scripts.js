@@ -36,3 +36,15 @@ const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 
 console.log(computerSelection);
+
+//Declare a new function called game without any parameters
+//Create two global variables called playerWins and computerWins and set them both to zero.
+//Prompt the user for either rock, paper or scissors, and store it inside the variable playerSelection
+//Run the function getComputerChoice and store it inside a mutable variable called computerSelection
+//Modify the function playRound:
+//1: If player wins, add +1 to playerWins
+//2: If computer wins, add +1 to computerWins
+//3: If draw, add +1 to both.
+//Run playRound and log the output to the console.
+//Log the score with a template literal
+//Convert the code inside the function  into a for loop, that runs 5 times.
