@@ -44,6 +44,15 @@ function isGameOver() {
   return playerScore === 5 || computerScore === 5;
 }
 
+//UI
+
+const buttons = document.querySelectorAll(".playerMove");
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    alert("Hello World");
+  });
+});
+
 // //Create a new function that takes two string parameters, computerSelection and playerSelection
 // function playRound(playerSelection, computerSelection) {
 //   //Convert playerSelection to lowercase and store it in a new variable called playerMove
