@@ -49,6 +49,7 @@ const result = document.querySelector(".results");
 const buttons = document.querySelectorAll(".playerMove");
 const printResult = document.createElement("p");
 const scoreCard = document.createElement("p");
+const gameOverMessage = document.createElement("p");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     playRound(button.value, getComputerChoice());
@@ -66,6 +67,23 @@ buttons.forEach((button) => {
     scoreCard.textContent = `Playerscore: ${playerScore} Computerscore: ${computerScore}`;
     result.appendChild(printResult);
     result.appendChild(scoreCard);
+    if (isGameOver() === true) {
+      switch (playerScore > computerScore) {
+        case true:
+          gameOverMessage.textContent = "Game over! You win!";
+          break;
+        case false:
+          gameOverMessage.textContent = "Game over! You lose biatch!";
+          break;
+      }
+      //Resets the game
+      playerScore = 0;
+      computerScore = 0;
+      roundWinner = "";
+    } else {
+      gameOverMessage.textContent = "First to reach 5 wins is the winner!";
+    }
+    result.appendChild(gameOverMessage);
   });
 });
 
