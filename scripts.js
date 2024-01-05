@@ -45,13 +45,21 @@ function isGameOver() {
 }
 
 //UI
-
+const result = document.querySelector(".results");
 const buttons = document.querySelectorAll(".playerMove");
+const p = document.createElement("p");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    alert("Hello World");
+    playRound(button.value, getComputerChoice());
+    p.textContent = `Playerscore: ${playerScore} Computerscore: ${computerScore}`;
+    //Adds conditional statement to prevent a new child with every click
+    let numb = result.children.length;
+    result.appendChild(p);
   });
 });
+
+//Create another clickevent that activates when you click the form
+//When the click event activates,
 
 // //Create a new function that takes two string parameters, computerSelection and playerSelection
 // function playRound(playerSelection, computerSelection) {
