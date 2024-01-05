@@ -21,7 +21,7 @@ function getComputerChoice() {
 //Function that evaluates winner and plays the round
 
 function playRound(playerSelection, computerSelection) {
-  if (playerScore === computerSelection) {
+  if (playerSelection === computerSelection) {
     roundWinner = "tie";
   } else if (
     (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
@@ -47,16 +47,32 @@ function isGameOver() {
 //UI
 const result = document.querySelector(".results");
 const buttons = document.querySelectorAll(".playerMove");
-const p = document.createElement("p");
+const printResult = document.createElement("p");
+const scoreCard = document.createElement("p");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     playRound(button.value, getComputerChoice());
-    p.textContent = `Playerscore: ${playerScore} Computerscore: ${computerScore}`;
-    //Adds conditional statement to prevent a new child with every click
-    let numb = result.children.length;
-    result.appendChild(p);
+    switch (roundWinner) {
+      case "tie":
+        printResult.textContent = "It's a tie!";
+        break;
+      case "player":
+        printResult.textContent = "You win!";
+        break;
+      case "computer":
+        printResult.textContent = "You lose!";
+        break;
+    }
+    scoreCard.textContent = `Playerscore: ${playerScore} Computerscore: ${computerScore}`;
+    result.appendChild(printResult);
+    result.appendChild(scoreCard);
   });
 });
+
+//When clicked, add an event that changes the textContent of printResult
+//and display the winner of the current round
+//Use a switch statement to decide what message to display
+//Evaluate roundwinner, for 1. tie 2. player or 3. computer
 
 //Create another clickevent that activates when you click the form
 //When the click event activates,
